@@ -59,19 +59,16 @@ const drumData = [
 
 function DrumMachine() {
 	const [displayText, setDisplayText] = useState('');
+	const [pressedButtonName, setPressedButtonName] = useState('');
 
-	const playAudio = (key) => {
-		const audioElement = document.getElementById(key);
-		if (audioElement) {
-			audioElement.currentTime = 0; // Rewind to the beginning
-			audioElement.play();
-			setDisplayText(key); // Display the pressed key
-		}
+	const playAudio = (name) => {
+		setDisplayText(name);
+		setPressedButtonName(name);
 	};
 
 	return (
 		<Container maxWidth="sm">
-			<Paper style={{ padding: '20px', textAlign: 'center' }}>
+			<Paper style={{ padding: '20px', textAlign: 'center'}}>
 				<h1>Drum Machine</h1>
 				<Grid container spacing={2}>
 					{drumData.map((item) => (
@@ -81,6 +78,7 @@ function DrumMachine() {
 								name={item.name}
 								src={item.src}
 								playAudio={playAudio}
+								pressedButtonName={pressedButtonName}
 							/>
 						</Grid>
 					))}

@@ -67,10 +67,17 @@ function DrumMachine() {
 	};
 
 	return (
-		<Container maxWidth="sm">
-			<Paper style={{ padding: '20px', textAlign: 'center'}}>
-				<h1>Drum Machine</h1>
-				<Grid container spacing={2}>
+		<Container
+			maxWidth="sm"
+			style={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+				height: '100vh',
+			}}
+		>
+			<Paper style={{ padding: '20px', textAlign: 'center' }}>
+				<Grid container spacing={2} style={{ marginBottom: '20px'}}>
 					{drumData.map((item) => (
 						<Grid item xs={4} key={item.id}>
 							<DrumPad
@@ -83,7 +90,16 @@ function DrumMachine() {
 						</Grid>
 					))}
 				</Grid>
-				<div id="display">{displayText}</div>
+				<div
+					id="display"
+					style={{
+						backgroundColor: 'blue',
+						color: 'white',
+						marginLeft: '30px',
+						marginRight: '30px',
+						padding: '10px',
+						borderRadius: '5px',
+					}}>{displayText}</div>
 			</Paper>
 		</Container>
 	);
